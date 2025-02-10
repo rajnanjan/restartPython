@@ -169,3 +169,109 @@ cars.sort(reverse= True) # order the elements in descending order
 reversedList = cars
 print("reversedList", reversedList)
 
+# customer fucntionin sort 
+def squareFunction (n):
+    print(n)
+    multiplication = n%2
+    print(multiplication)
+    return multiplication
+
+numbers = [9,8,7,6,5,4,3,2,1]
+
+numbers.sort (key = squareFunction)
+print(numbers)
+
+names  = ["shabira","Kaushiki","Neha", "Suba","Keerthana","Shanmugapriya","sangeetha","anjali"]
+names.sort() # pythone is case sensitive so first captilal lettters then small leters
+print(names)
+names.sort(key= str.lower) # convert to lowere case then sort by ascending order
+print(names)
+names.sort(key= str.lower,reverse=True) # convert to lowere case then sort by descending order
+print(names)
+
+re = names.reverse() # reverse function also return none
+print(re)
+names.reverse() # reverse function will arrange elements in reverse order like last element will be in the first
+print(names)
+subjects = ["tamil","english","maths","ascience","social science"]
+subjects.reverse()
+print(subjects)
+
+#copy list 
+copyNames = names
+print(copyNames)
+print(names)
+copyNames.append("New Name")
+print(copyNames)
+print(names)
+"""
+In above code we have changed only copyNames but names also got changes,
+because when we are symple assigning the list to another list that same reference will be assigned new variable
+"""
+"""
+for that in python we have copy function to copy the list
+or by slicing we can achive this
+"""
+anotherCopy = copyNames.copy()
+print(anotherCopy)
+anotherCopy.pop()
+print(anotherCopy)# now it wont change the original list whatever we are changing that will effect only the new list 
+
+# the same we can achive by slicing
+
+sliceList= anotherCopy[4:] # we can copy the list  by mentionin the index value like from the startin and ending elements
+newSliceList= anotherCopy[:] # this will copy the entire list
+print(sliceList)
+print(newSliceList)
+
+# another way to copy the list is by using the constructor list()
+
+sencondNewList = list(newSliceList)
+print(sencondNewList)
+
+# Join the list or compaining the list together
+"""
+we can achive the above requirements by below 
+"""
+
+# 1 concatenate
+list1 = ["a", "b", "c", "d", "e"]
+list2 = [1,2,3,4,5,6,7,8,9]
+list3 = [True,False,True,False,True,False]
+compainedList = list1 + list2 + list3
+print(compainedList)
+
+#2 for loop
+for i in range(len(list2)):
+    list1.append(list2[i])
+for j in range(len(list3)):
+    list1.append(list3[j])
+print("from for loop",list1)
+
+#3 while loop
+whileLoopTest = ["a", "b", "c", "d", "e"]
+i = 0
+while i < len(list2):
+    whileLoopTest.append(list2[i])
+    i += 1
+j = 0
+while j < len(list3):
+    whileLoopTest.append(list3[j])
+    j += 1
+print("form while loop ", whileLoopTest)
+
+print("*****************************************")
+# 4 extend function
+# list1.extend(list2, list3) # it will throw the typeError because extent function will take only one argument
+# list1.extend(list2).extend(list3) # this also attributes error because extent function will return none
+list2.extend(list1)
+list2.extend(list3)
+print(list2)
+
+# index function 
+print("List1 values", list1)
+indexValue =list1.index(True) # True value treates as 1 thats why we got 5 
+print(indexValue)
+list1.remove(1)
+indexValueforTrue = list1.index(True) # here we have got the 13 as a index value
+print(indexValueforTrue)
