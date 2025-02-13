@@ -106,3 +106,58 @@ Negative indexing works-> But slicing must still follow the left-to-right rule.
 print("open" in status) # return True
 print("Raj" in status) # return False
 
+# modifying the masters adding the one more value
+masters = ('invoice','customers','vendors')
+print("Intial masters",masters)
+add_masters = list(masters)
+add_masters.append("stocks")
+masters = tuple(add_masters)
+print("adding the stocks :",masters, type(masters))
+remove_masters = list(masters)
+remove_masters.remove("invoice")
+masters = tuple(remove_masters)
+print("remoing the invoices: ",masters)
+firstIndex = list(masters)
+del firstIndex[0]
+masters = tuple(firstIndex)
+print("removing the first index: ",masters)
+
+# unpacking the tuples ***********
+
+# (frist,second,thrid)= masters # ValueError  we will get, bocoz we are trying to assign 2 values to 3 variables
+# print(frist,second,thrid)
+(frist,second) = masters
+print(frist,second)
+adding_values = list(masters)
+adding_values.extend(["invoices","customers","users","agents"])
+print(adding_values)
+masters = tuple(adding_values)
+(*first,last) = masters 
+# first will be the list of elements not inclued last index
+# last will be the last index  value of master
+print(first,last)
+(first,*last) = masters
+# first will be the 0 index value of master
+# last will be the all values expect 0 index value
+print(first,last)
+
+(first,*middle,last) = masters
+# first will be the 0 index value of master
+# last will be the last index value of master
+# middle will be the  rest of the masters value
+
+print(first,middle,last)
+# (first,middle,last) = masters  # Value error becoz we have more value but we are trying to assign 3 varibles
+print(first,middle,last)
+
+# combined tuples we can assing one or more tuples to variables
+combinedTuples = masters + status
+print(combinedTuples, type(combinedTuples))
+multipledRuples = masters*3
+multipledRuples_second = (masters+status)*3
+# multipledRuples = masters**3 Type Error becoz we are tring  unsupored operand
+print("******************************************************************************")
+print(multipledRuples_second)
+
+print(multipledRuples_second.count("approved"))
+print(multipledRuples_second.index("approved"))
